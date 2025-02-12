@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+        
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            text-align: center;
+            margin: 50px;
+            overflow: hidden;
+        }
+        .container {
+            position: relative; /* Ensure correct button movement */
+            display: inline-block;
+            margin-top: 100px;
+        }
+        .btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: #9ed761;
+            color: white;
+        }
+        .no {
+            background-color: #f2c5fa;
+            color: white;
+            position: absolute;
+            left: 150%;
+            transform: translateX(-50%);
+        }
+        #hoverText {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #df84d8;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will you be my Valentine? 🥺🙏</h1>
+    <div class="container">
+        <button class="btn yes" onclick="alert(`I love you so much, my love. Alam ko na late na ako nagtanong, pero sobrang thank you for accepting and for being my Valentine. Ang saya ko talaga na ikaw ang Valentine ko. I apologize again for asking too late. Naging busy rin ako sa competition (ik you're busy rin and it's not a good reason), and I wanted to say more, but I guess it's too late. Pero gusto ko lang malaman mo, love, na from the very start, I always wanted it to be you. I wouldn't want anyone else to be my Valentine but you. Thank you for choosing me. I promise to always choose you.🤍🤍🤍`)">
+            Yes
+        </button>        
+        <button class="btn no" onmouseover="moveButton(); showText();">No</button>
+    </div>
+    <p id="hoverText">BAWALL!!!</p>
+
+    <script>
+        function moveButton() {
+            const noButton = document.querySelector('.no');
+
+            // Ensure button has absolute positioning
+            noButton.style.position = 'absolute';
+
+            // Calculate new random position
+            const maxX = window.innerWidth - noButton.clientWidth - 20;
+            const maxY = window.innerHeight - noButton.clientHeight - 20;
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+
+        function showText() {
+            document.getElementById('hoverText').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
